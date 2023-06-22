@@ -1,19 +1,19 @@
 import { ComponentProps, ReactNode } from "react";
-import { LinkGithubContainer } from "./styles";
+import { ExternalLinkContainer } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 
-type LinkGithubProps = ComponentProps<typeof LinkGithubContainer> & {
+type ExternalLinkProps = ComponentProps<typeof ExternalLinkContainer> & {
     text: string;
     icon?: ReactNode;
     variant?: "iconLeft";
 }
-export function LinkGithub({text, icon, ...rest}: LinkGithubProps) {
+export function ExternalLink({text, icon, ...rest}: ExternalLinkProps) {
     return (
-        <LinkGithubContainer {...rest}>
+        <ExternalLinkContainer {...rest}>
         {text}
         {icon ?? <FontAwesomeIcon icon={faUpRightFromSquare}/>}
-        </LinkGithubContainer>
+        </ExternalLinkContainer>
     )
 }

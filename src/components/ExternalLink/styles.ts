@@ -1,7 +1,10 @@
 import { ArrowUpRight } from "@phosphor-icons/react";
 import styled from "styled-components";
 
-export const LinkGithubContainer = styled.a`
+interface ExternalLinkProps {
+    variant?: "iconLeft";
+}
+export const ExternalLinkContainer = styled.a<ExternalLinkProps>`
     border: none;
     background: none;
     color: ${({theme}) => theme.colors.blue};

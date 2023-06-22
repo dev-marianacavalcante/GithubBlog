@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { LinkGithub } from '../../../../components/LinkGithub'
+import { ExternalLink } from '../../../../components/ExternalLink'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
     ProfileContainer,
@@ -15,7 +15,7 @@ export function Profile() {
             <ProfileDetails>
                 <header>
                     <h1>Mariana Cavalcante</h1>
-                    <LinkGithub  text='Github' href="https://github.com/dev-marianacavalcante"/>
+                    <ExternalLink  text='Github' href="https://github.com/dev-marianacavalcante"/>
                 </header>
                 <p>
                     Tristique volutpat pulvinar vel massa, pellentesque egestas. 
