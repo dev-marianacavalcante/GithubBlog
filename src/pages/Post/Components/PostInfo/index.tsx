@@ -2,17 +2,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCalendar, faChevronLeft, faComment } from "@fortawesome/free-solid-svg-icons";
 import { Container } from "./styles";
-import { ExternalLink } from "../../../../components/ExternalLink";
+import { useNavigate } from "react-router-dom";
+import { ExternalLink } from "../../../../components/externalLink";
 
 export function PostInfo() {
+    const navigate = useNavigate();
+
+    function goBack() {
+        navigate (-1)
+    }
     return(
         <Container>
             <header>
                 <ExternalLink
                 as="button"
+                onClick={goBack}
                 icon={<FontAwesomeIcon icon={faChevronLeft}/>}
                 text="Voltar"
-                href="http://localhost:5173/"
+                variant="iconLeft"
                 />
                 <ExternalLink text="Ver no Github" href="https://github.com/dev-marianacavalcante" target ="_blank"/>
             </header>
