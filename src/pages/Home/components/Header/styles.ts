@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import header from '../../../../assets/headerBg.png'
+import header from "../../../../assets/headerBg.png";
 
 export const Container = styled.header`
   width: 100%;
@@ -13,4 +13,3 @@ export const Container = styled.header`
     margin-bottom: 5rem;
   }
 `;
-
