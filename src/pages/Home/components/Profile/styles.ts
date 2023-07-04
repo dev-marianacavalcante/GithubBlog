@@ -42,13 +42,19 @@ export const ProfileDetails = styled.div`
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    flex-wrap: 0.5rem;
+    flex-wrap: wrap;
     margin-top: auto;
 
-    svg {
-      width: 1.125rem;
-      height: 1.125rem;
-      color: ${({ theme }) => theme.colors["base-label"]};
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        width: 1.125rem;
+        height: 1.125rem;
+        color: ${({ theme }) => theme.colors["base-label"]};
+      }
     }
   }
 `;

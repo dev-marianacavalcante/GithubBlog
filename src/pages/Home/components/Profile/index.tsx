@@ -16,7 +16,7 @@ const username = import.meta.env.VITE_GITHUB_USERNAME;
 interface ProfileData {
   login: string;
   bio: string;
-  avartar_url: string;
+  avatar_url: string;
   html_url: string;
   name: string;
   company?: string;
@@ -50,7 +50,7 @@ export function Profile() {
         <Spinner />
       ) : (
         <>
-          <ProfileImg src={profileData.avartar_url} />
+          <ProfileImg src={profileData.avatar_url} />
 
           <ProfileDetails>
             <header>
