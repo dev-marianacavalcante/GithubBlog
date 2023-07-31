@@ -1,25 +1,44 @@
-name: React.ts CI
+name: Deploy static content to Pages
 
 on:
   push:
-    branches: [deploy]
-  pull_request:
-    branches: [deploy]
+    branches: ["deploy"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use React.ts ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build
-      - run: npm run preview
+          node-version: 16
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "./dist"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
