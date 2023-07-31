@@ -31,6 +31,8 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm install
+      - name: Install serve
+        run: npm install -g serve
       - name: Build
         run: npm run build
       - name: Setup Pages
@@ -42,3 +44,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Build serve
+        run: serve -s build &
